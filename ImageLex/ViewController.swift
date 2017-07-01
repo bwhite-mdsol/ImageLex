@@ -166,12 +166,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         if dictionary["error"] != nil {
           // present error message
-          var error = dictionary["error"] as? [String: Any]
+          var error = dictionary["error"] as? [String: AnyObject]
           resultText = error?["message"] as! String
         } else {
           // get labels from labelAnnontations
-          let responses = dictionary["responses"]?[0] as! [String: Any]
-          let annotations = responses["labelAnnotations"] as! Array<[String: Any]>
+          let responses = dictionary["responses"]?[0] as! [String: AnyObject]
+          let annotations = responses["labelAnnotations"] as! Array<[String: AnyObject]>
 
           for label:[String: Any] in annotations {
             resultText += label["description"] as! String
